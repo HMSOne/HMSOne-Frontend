@@ -1,7 +1,4 @@
-import {
-  IconMan,
-  IconWoman,
-} from '@tabler/icons-react'
+import { IconMan, IconWoman } from '@tabler/icons-react'
 
 export const genders = [
   {

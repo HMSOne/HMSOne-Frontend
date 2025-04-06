@@ -23,17 +23,17 @@ export function DataTableToolbar<TData>({
           value={(table.getColumn('shortId')?.getFilterValue() as string) ?? ''}
           onChange={(event) => {
             table.getColumn('shortId')?.setFilterValue(event.target.value)
-          }
-          }
+          }}
           className='h-8 w-[170px] lg:w-[170px]'
         />
         <Input
           placeholder='Full Name...'
-          value={(table.getColumn('fullName')?.getFilterValue() as string) ?? ''}
+          value={
+            (table.getColumn('fullName')?.getFilterValue() as string) ?? ''
+          }
           onChange={(event) => {
             table.getColumn('fullName')?.setFilterValue(event.target.value)
-          }
-          }
+          }}
           className='h-8 w-[150px] lg:w-[250px]'
         />
         <div className='flex gap-x-2'>

@@ -6,7 +6,6 @@ const userStatusSchema = z.union([
   z.literal('invited'),
   z.literal('suspended'),
 ])
-export type UserStatus = z.infer<typeof userStatusSchema>
 
 const userRoleSchema = z.union([
   z.literal('softwareEngineer'),

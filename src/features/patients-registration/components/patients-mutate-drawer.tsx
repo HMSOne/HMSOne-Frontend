@@ -22,8 +22,8 @@ import {
   SheetTitle,
 } from '@/components/ui/sheet'
 import { SelectDropdown } from '@/components/select-dropdown'
-import { Patient } from '../data/schema'
 import { genders } from '../data/data'
+import { Patient } from '../data/schema'
 
 interface Props {
   open: boolean

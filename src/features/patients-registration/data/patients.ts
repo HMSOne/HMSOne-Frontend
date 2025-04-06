@@ -10,6 +10,6 @@ export const patients = Array.from({ length: 20 }, () => {
     contact,
     gender: faker.helpers.arrayElement(['male', 'female']),
     age: faker.number.int({ min: 0, max: 100 }),
-    status: faker.helpers.arrayElement(['active', 'offline'])
+    status: faker.helpers.arrayElement(['active', 'offline']),
   }
 })

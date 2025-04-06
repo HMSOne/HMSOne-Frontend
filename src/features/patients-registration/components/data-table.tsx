@@ -42,7 +42,7 @@ export function DataTable<TData, TValue>({
     []
   )
   const [sorting, setSorting] = React.useState<SortingState>([])
-  const { setOpen, setCurrentRow } = usePatients();
+  const { setOpen, setCurrentRow } = usePatients()
 
   const table = useReactTable({
     data,
@@ -101,9 +101,12 @@ export function DataTable<TData, TValue>({
                       key={cell.id}
                       onClick={() => {
                         const patient = patientSchema.parse(row.original)
-                        if (cell.column.id !== 'actions' && cell.column.id !== 'select') {
+                        if (
+                          cell.column.id !== 'actions' &&
+                          cell.column.id !== 'select'
+                        ) {
                           setCurrentRow(patient)
-                          setOpen('update');
+                          setOpen('update')
                         }
                       }}
                     >
