@@ -1,12 +1,10 @@
 import {
-  IconCash,
   IconShield,
   IconUserBolt,
   IconUserCheck,
   IconUserDollar,
   IconUserEdit,
   IconUserHeart,
-  IconUsersGroup,
   IconUserShield,
   IconUsersPlus,
 } from '@tabler/icons-react'

@@ -34,18 +34,6 @@ export function PatientsDialogs() {
             currentRow={currentRow}
           />
 
-          <PatientsMutateDrawer
-            key={`patient-detail-${currentRow.shortId}`}
-            open={open === 'detail'}
-            onOpenChange={() => {
-              setOpen('detail')
-              setTimeout(() => {
-                setCurrentRow(null)
-              }, 500)
-            }}
-            currentRow={currentRow}
-          />
-
           <ConfirmDialog
             key='patient-delete'
             destructive
