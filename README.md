@@ -5,6 +5,7 @@ Your trusted healthcare management system.
 ## description
 
 #### Main functions is a work in progress
+
 - [ ] Patient registration
 - [ ] Appointments
 - [ ] Clinical Management
