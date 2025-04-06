@@ -4,6 +4,20 @@ Your trusted healthcare management system.
 
 ## description
 
+#### Main functions is a work in progress
+- [ ] Patient registration
+- [ ] Appointments
+- [ ] Clinical Management
+- [ ] Emergency
+- [ ] Operation Theater
+- [ ] In-Patient Management
+- [ ] Laporatory
+- [ ] Blood Bank
+- [ ] Radiology
+- [ ] Inventory
+- [ ] Users
+- [ ] Dashboard
+
 ## Run Locally
 
 Clone the project
@@ -21,6 +35,7 @@ Go to the project directory
 Install dependencies
 
 ```bash
+  npm install -D pnpm
   pnpm install
 ```
 
