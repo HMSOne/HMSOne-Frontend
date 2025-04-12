@@ -1,6 +1,10 @@
 import { DotsHorizontalIcon } from '@radix-ui/react-icons'
+import { Link } from '@tanstack/react-router'
 import { Row } from '@tanstack/react-table'
-import { IconTrash } from '@tabler/icons-react'
+import {
+  IconCalendarBolt,
+  IconTrash,
+} from '@tabler/icons-react'
 import { toast } from '@/hooks/use-toast'
 import { Button } from '@/components/ui/button'
 import {
@@ -53,8 +57,6 @@ export function DataTableRowActions<TData>({
         >
           Edit
         </DropdownMenuItem>
-        {/* <DropdownMenuItem disabled>Make a copy</DropdownMenuItem>
-        <DropdownMenuItem disabled>Favorite</DropdownMenuItem> */}
         <DropdownMenuSeparator />
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>Transfer</DropdownMenuSubTrigger>
@@ -84,6 +86,32 @@ export function DataTableRowActions<TData>({
             </ScrollArea>
           </DropdownMenuSubContent>
         </DropdownMenuSub>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem>
+          <a
+            href={`mailto:${patient.email}`}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Send an Email
+          </a>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link
+            to='/patients-registration/add-appointment'
+            search={{
+              patientId: patient.shortId,
+              patientName: patient.fullName,
+              patientEmail: patient.email,
+              patientContact: patient.contact,
+            }}
+          >
+            Add appointment
+          </Link>
+          <DropdownMenuShortcut>
+            <IconCalendarBolt size={16} />
+          </DropdownMenuShortcut>
+        </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem
           onClick={() => {

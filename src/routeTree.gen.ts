@@ -97,6 +97,8 @@ const AuthenticatedSettingsAppearanceLazyImport = createFileRoute(
 const AuthenticatedSettingsAccountLazyImport = createFileRoute(
   '/_authenticated/settings/account',
 )()
+const AuthenticatedPatientsRegistrationAddAppointmentLazyImport =
+  createFileRoute('/_authenticated/patients-registration/add-appointment')()
 const AuthenticatedMaintenanceSoftwareReportsLazyImport = createFileRoute(
   '/_authenticated/maintenance/software-reports',
 )()
@@ -424,6 +426,17 @@ const AuthenticatedSettingsAccountLazyRoute =
     ),
   )
 
+const AuthenticatedPatientsRegistrationAddAppointmentLazyRoute =
+  AuthenticatedPatientsRegistrationAddAppointmentLazyImport.update({
+    id: '/patients-registration/add-appointment',
+    path: '/patients-registration/add-appointment',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import(
+      './routes/_authenticated/patients-registration/add-appointment.lazy'
+    ).then((d) => d.Route),
+  )
+
 const AuthenticatedMaintenanceSoftwareReportsLazyRoute =
   AuthenticatedMaintenanceSoftwareReportsLazyImport.update({
     id: '/maintenance/software-reports',
@@ -542,6 +555,13 @@ declare module '@tanstack/react-router' {
       path: '/maintenance/software-reports'
       fullPath: '/maintenance/software-reports'
       preLoaderRoute: typeof AuthenticatedMaintenanceSoftwareReportsLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
+    '/_authenticated/patients-registration/add-appointment': {
+      id: '/_authenticated/patients-registration/add-appointment'
+      path: '/patients-registration/add-appointment'
+      fullPath: '/patients-registration/add-appointment'
+      preLoaderRoute: typeof AuthenticatedPatientsRegistrationAddAppointmentLazyImport
       parentRoute: typeof AuthenticatedRouteImport
     }
     '/_authenticated/settings/account': {
@@ -726,6 +746,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedSettingsRouteLazyRoute: typeof AuthenticatedSettingsRouteLazyRouteWithChildren
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
   AuthenticatedMaintenanceSoftwareReportsLazyRoute: typeof AuthenticatedMaintenanceSoftwareReportsLazyRoute
+  AuthenticatedPatientsRegistrationAddAppointmentLazyRoute: typeof AuthenticatedPatientsRegistrationAddAppointmentLazyRoute
   AuthenticatedSetupCustomTemplateLazyRoute: typeof AuthenticatedSetupCustomTemplateLazyRoute
   AuthenticatedSetupInventoryLazyRoute: typeof AuthenticatedSetupInventoryLazyRoute
   AuthenticatedSetupLaporatoryLazyRoute: typeof AuthenticatedSetupLaporatoryLazyRoute
@@ -750,6 +771,8 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
   AuthenticatedMaintenanceSoftwareReportsLazyRoute:
     AuthenticatedMaintenanceSoftwareReportsLazyRoute,
+  AuthenticatedPatientsRegistrationAddAppointmentLazyRoute:
+    AuthenticatedPatientsRegistrationAddAppointmentLazyRoute,
   AuthenticatedSetupCustomTemplateLazyRoute:
     AuthenticatedSetupCustomTemplateLazyRoute,
   AuthenticatedSetupInventoryLazyRoute: AuthenticatedSetupInventoryLazyRoute,
@@ -792,6 +815,7 @@ export interface FileRoutesByFullPath {
   '/503': typeof errors503LazyRoute
   '/': typeof AuthenticatedIndexRoute
   '/maintenance/software-reports': typeof AuthenticatedMaintenanceSoftwareReportsLazyRoute
+  '/patients-registration/add-appointment': typeof AuthenticatedPatientsRegistrationAddAppointmentLazyRoute
   '/settings/account': typeof AuthenticatedSettingsAccountLazyRoute
   '/settings/appearance': typeof AuthenticatedSettingsAppearanceLazyRoute
   '/settings/display': typeof AuthenticatedSettingsDisplayLazyRoute
@@ -828,6 +852,7 @@ export interface FileRoutesByTo {
   '/503': typeof errors503LazyRoute
   '/': typeof AuthenticatedIndexRoute
   '/maintenance/software-reports': typeof AuthenticatedMaintenanceSoftwareReportsLazyRoute
+  '/patients-registration/add-appointment': typeof AuthenticatedPatientsRegistrationAddAppointmentLazyRoute
   '/settings/account': typeof AuthenticatedSettingsAccountLazyRoute
   '/settings/appearance': typeof AuthenticatedSettingsAppearanceLazyRoute
   '/settings/display': typeof AuthenticatedSettingsDisplayLazyRoute
@@ -868,6 +893,7 @@ export interface FileRoutesById {
   '/(errors)/503': typeof errors503LazyRoute
   '/_authenticated/': typeof AuthenticatedIndexRoute
   '/_authenticated/maintenance/software-reports': typeof AuthenticatedMaintenanceSoftwareReportsLazyRoute
+  '/_authenticated/patients-registration/add-appointment': typeof AuthenticatedPatientsRegistrationAddAppointmentLazyRoute
   '/_authenticated/settings/account': typeof AuthenticatedSettingsAccountLazyRoute
   '/_authenticated/settings/appearance': typeof AuthenticatedSettingsAppearanceLazyRoute
   '/_authenticated/settings/display': typeof AuthenticatedSettingsDisplayLazyRoute
@@ -908,6 +934,7 @@ export interface FileRouteTypes {
     | '/503'
     | '/'
     | '/maintenance/software-reports'
+    | '/patients-registration/add-appointment'
     | '/settings/account'
     | '/settings/appearance'
     | '/settings/display'
@@ -943,6 +970,7 @@ export interface FileRouteTypes {
     | '/503'
     | '/'
     | '/maintenance/software-reports'
+    | '/patients-registration/add-appointment'
     | '/settings/account'
     | '/settings/appearance'
     | '/settings/display'
@@ -981,6 +1009,7 @@ export interface FileRouteTypes {
     | '/(errors)/503'
     | '/_authenticated/'
     | '/_authenticated/maintenance/software-reports'
+    | '/_authenticated/patients-registration/add-appointment'
     | '/_authenticated/settings/account'
     | '/_authenticated/settings/appearance'
     | '/_authenticated/settings/display'
@@ -1065,6 +1094,7 @@ export const routeTree = rootRoute
         "/_authenticated/settings",
         "/_authenticated/",
         "/_authenticated/maintenance/software-reports",
+        "/_authenticated/patients-registration/add-appointment",
         "/_authenticated/setup/custom-template",
         "/_authenticated/setup/inventory",
         "/_authenticated/setup/laporatory",
@@ -1133,6 +1163,10 @@ export const routeTree = rootRoute
     },
     "/_authenticated/maintenance/software-reports": {
       "filePath": "_authenticated/maintenance/software-reports.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/patients-registration/add-appointment": {
+      "filePath": "_authenticated/patients-registration/add-appointment.lazy.tsx",
       "parent": "/_authenticated"
     },
     "/_authenticated/settings/account": {
