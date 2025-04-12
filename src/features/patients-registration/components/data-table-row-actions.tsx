@@ -1,10 +1,7 @@
 import { DotsHorizontalIcon } from '@radix-ui/react-icons'
 import { Link } from '@tanstack/react-router'
 import { Row } from '@tanstack/react-table'
-import {
-  IconCalendarBolt,
-  IconTrash,
-} from '@tabler/icons-react'
+import { IconCalendarBolt, IconTrash } from '@tabler/icons-react'
 import { toast } from '@/hooks/use-toast'
 import { Button } from '@/components/ui/button'
 import {
