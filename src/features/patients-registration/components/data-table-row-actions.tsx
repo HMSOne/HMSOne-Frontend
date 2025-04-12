@@ -1,6 +1,7 @@
 import { DotsHorizontalIcon } from '@radix-ui/react-icons'
 import { Row } from '@tanstack/react-table'
 import { IconTrash } from '@tabler/icons-react'
+import { toast } from '@/hooks/use-toast'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -8,12 +9,17 @@ import {
   DropdownMenuItem, // DropdownMenuRadioGroup,
   // DropdownMenuRadioItem,
   DropdownMenuSeparator,
-  DropdownMenuShortcut, // DropdownMenuSub,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger, // DropdownMenuSub,
   // DropdownMenuSubContent,
   // DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import { usePatients } from '../context/patients-context'
+import { doctors } from '../data/doctors'
 import { patientSchema } from '../data/schema'
 
 interface DataTableRowActionsProps<TData> {
@@ -47,19 +53,37 @@ export function DataTableRowActions<TData>({
         >
           Edit
         </DropdownMenuItem>
-        <DropdownMenuItem disabled>Make a copy</DropdownMenuItem>
-        <DropdownMenuItem disabled>Favorite</DropdownMenuItem>
-        {/* <DropdownMenuSeparator />
+        {/* <DropdownMenuItem disabled>Make a copy</DropdownMenuItem>
+        <DropdownMenuItem disabled>Favorite</DropdownMenuItem> */}
+        <DropdownMenuSeparator />
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>Transfer</DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
-              {staff.map((s) => (
-                <DropdownMenuItem key={s.value} value={s.value}>
-                  {s.label}
+            <ScrollArea className='h-[500px] w-[300px] p-2'>
+              {doctors.map((doctor) => (
+                <DropdownMenuItem
+                  key={doctor.shortId}
+                  className='cursor-pointer'
+                  onClick={() => {
+                    toast({
+                      title: 'You submitted the following values:',
+                      description: (
+                        <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
+                          <code className='text-white'>
+                            {JSON.stringify({ ...patient, doctor }, null, 2)}
+                          </code>
+                        </pre>
+                      ),
+                    })
+                  }}
+                >
+                  {doctor.user_appreviation} {doctor.first_name}{' '}
+                  {doctor.last_name}
                 </DropdownMenuItem>
               ))}
+            </ScrollArea>
           </DropdownMenuSubContent>
-        </DropdownMenuSub> */}
+        </DropdownMenuSub>
         <DropdownMenuSeparator />
         <DropdownMenuItem
           onClick={() => {

@@ -35,6 +35,8 @@ interface Props {
 const formSchema = z.object({
   fullName: z.string().min(1, 'fullName is required.'),
   gender: z.string().min(1, 'Please select a gender.'),
+  contact: z.string(),
+  age: z.number(),
 })
 type PatientsForm = z.infer<typeof formSchema>
 
@@ -121,6 +123,32 @@ export function PatientsMutateDrawer({
               )}
             />
             ...{/* Add more fields later */}
+            <FormField
+              control={form.control}
+              name='contact'
+              render={({ field }) => (
+                <FormItem className='space-y-1'>
+                  <FormLabel>Contact</FormLabel>
+                  <FormControl>
+                    <Input {...field} placeholder='Enter Contact' />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='age'
+              render={({ field }) => (
+                <FormItem className='space-y-1'>
+                  <FormLabel>Age</FormLabel>
+                  <FormControl>
+                    <Input {...field} placeholder='Enter Age' />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
           </form>
         </Form>
         <SheetFooter className='gap-2'>
