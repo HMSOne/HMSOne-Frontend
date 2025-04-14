@@ -37,6 +37,7 @@ const formSchema = z.object({
   gender: z.string().min(1, 'Please select a gender.'),
   contact: z.string(),
   age: z.number(),
+  email: z.string(),
 })
 type PatientsForm = z.infer<typeof formSchema>
 
@@ -144,6 +145,19 @@ export function PatientsMutateDrawer({
                   <FormLabel>Age</FormLabel>
                   <FormControl>
                     <Input {...field} placeholder='Enter Age' />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='email'
+              render={({ field }) => (
+                <FormItem className='space-y-1'>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input {...field} placeholder='Enter Email' />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
