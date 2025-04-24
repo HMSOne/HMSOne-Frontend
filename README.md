@@ -1,12 +1,14 @@
-# HMSOne frontend
+# ➕ HMSOne frontend
 
-Your trusted healthcare management system.
+⚡ 💗 Your trusted healthcare management system.
+
+![hms-one-croped](https://github.com/user-attachments/assets/23d948c3-4d3e-42ec-a74f-086e49109562)
 
 ## description
 
 #### Main functions is a work in progress
 
-- [ ] Patient registration
+- [x] Patient registration
 - [ ] Appointments
 - [ ] Clinical Management
 - [ ] Emergency
