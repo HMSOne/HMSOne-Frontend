@@ -3,6 +3,7 @@ import { ConfirmDialog } from '@/components/confirm-dialog'
 import { usePatients } from '../context/patients-context'
 import { PatientsImportDialog } from './patients-import-dialog'
 import { PatientsMutateDrawer } from './patients-mutate-drawer'
+import { PatientsExportDialog } from './patients-export-dialog'
 
 export function PatientsDialogs() {
   const { open, setOpen, currentRow, setCurrentRow } = usePatients()
@@ -18,6 +19,12 @@ export function PatientsDialogs() {
         key='patients-import'
         open={open === 'import'}
         onOpenChange={() => setOpen('import')}
+      />
+
+      <PatientsExportDialog
+        key='patients-export'
+        open={open === 'export'}
+        onOpenChange={() => setOpen('export')}
       />
 
       {currentRow && (
