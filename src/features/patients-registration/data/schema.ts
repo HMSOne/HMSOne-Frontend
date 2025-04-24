@@ -14,16 +14,16 @@ export const patientSchema = z.object({
 
 export type Patient = z.infer<typeof patientSchema>
 
-export const doctorSchema = z.object({
-  shortId: z.string(),
-  first_name: z.string(),
-  last_name: z.string(),
-  user_type: z.string(),
-  user_appreviation: z.string(),
-  contact: z.string(),
-  gender: z.string(),
-  age: z.number(),
-  status: z.string(),
-})
-
-export type Doctor = z.infer<typeof doctorSchema>
+// export const doctorSchema = z.object({
+//   shortId: z.string(),
+//   first_name: z.string(),
+//   last_name: z.string(),
+//   user_type: z.string(),
+//   user_appreviation: z.string(),
+//   contact: z.string(),
+//   gender: z.string(),
+//   age: z.number(),
+//   status: z.string(),
+// })
+//
+// export type Doctor = z.infer<typeof doctorSchema>

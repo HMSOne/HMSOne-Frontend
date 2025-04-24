@@ -33,9 +33,7 @@ export function PatientsExportDialog({ open, onOpenChange }: Props) {
           <DialogClose asChild>
             <Button variant='outline'>Close</Button>
           </DialogClose>
-          <Button variant='secondary'>
-            Download
-          </Button>
+          <Button variant='secondary'>Download</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
